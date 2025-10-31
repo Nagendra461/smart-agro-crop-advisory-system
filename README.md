@@ -16,3 +16,21 @@ Backend | Python, Django
 ML Model | Scikit-Learn, Pandas, NumPy  
 Frontend | HTML, CSS, JavaScript  
 Dataset | Crop Recommendation Dataset  
+
+
+## Input Parameters
+
+| Parameter   | Description                      |
+|------------|----------------------------------|
+| N          | Nitrogen level in soil           |
+| P          | Phosphorus level in soil         |
+| K          | Potassium level in soil          |
+| Temperature| Temperature in °C                |
+| Humidity   | Humidity %                       |
+| pH         | Soil pH value                    |
+| Rainfall   | Rainfall in mm                   |
+
+## Output
+Recommended best crop for given soil and climate conditions.
+
+
