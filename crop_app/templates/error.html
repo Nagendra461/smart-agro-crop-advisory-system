@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Error - Smart AgroCrop Advisory System</title>
+    <link rel="stylesheet" href="{% static 'myhome.css' %}">
+    <style>
+        body {
+            background-color: #f8d7da;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .error-box {
+            background-color: #ffe5e5;
+            border: 1px solid #ff4c4c;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        h2 {
+            color: #721c24 !important;
+        }
+
+        p {
+            color: #721c24 !important;
+            font-weight: bold;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+
+        .form-row label {
+            width: 150px;
+            text-align: right;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .form-row input {
+            padding: 8px;
+            width: 180px;
+            margin-right: 12px;
+        }
+
+        input[type="submit"] {
+            margin-top: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #004085;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-box">
+        <h2>❌ Invalid Input Detected</h2>
+        <p>{{ error_message }}</p>
+
+        {% comment %} <form method="post" action="{% url 'index' %}"> The browser simply resubmits to the same route
+        {% endcomment %}
+
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-row">
+                <label for="Nitrogen">Nitrogen:</label>
+                <input type="text" id="Nitrogen" name="Nitrogen" value="{{ nitrogen }}">
+            </div>
+
+            <div class="form-row">
+                <label for="Phosphorus">Phosphorus:</label>
+                <input type="text" id="Phosphorus" name="Phosphorus" value="{{ phosphorus }}">
+            </div>
+
+            <div class="form-row">
+                <label for="Potassium">Potassium:</label>
+                <input type="text" id="Potassium" name="Potassium" value="{{ potassium }}">
+            </div>
+
+            <div class="form-row">
+                <label for="Temperature">Temperature (°C):</label>
+                <input type="text" id="Temperature" name="Temperature" value="{{ temperature }}">
+            </div>
+
+            <div class="form-row">
+                <label for="Humidity">Humidity (%):</label>
+                <input type="text" id="Humidity" name="Humidity" value="{{ humidity }}">
+            </div>
+
+            <div class="form-row">
+                <label for="ph">pH (0–14):</label>
+                <input type="text" id="ph" name="ph" value="{{ ph }}">
+            </div>
+
+            <div class="form-row">
+                <label for="Rainfall">Rainfall (mm):</label>
+                <input type="text" id="Rainfall" name="Rainfall" value="{{ rainfall }}">
+            </div>
+
+            <input type="submit" value="Try Again">
+        </form>
+
+        <a href="{% url 'index' %}">⬅️ Go Back to Blank Form</a>
+    </div>
+
+    <script>
+    window.onload = function () {
+        // Example: Simple logic to focus the first field based on error message
+        const errorMsg = "{{ error_message }}";
+
+        if (errorMsg.toLowerCase().includes('nitrogen')) {
+            const field = document.getElementById('Nitrogen');
+            field.value = '';
+            field.focus();
+        } else if (errorMsg.toLowerCase().includes('phosphorus')) {
+            const field = document.getElementById('Phosphorus');
+            field.value = '';
+            field.focus();
+        } else if (errorMsg.toLowerCase().includes('potassium')) {
+            const field = document.getElementById('Potassium');
+            field.value = '';
+            field.focus();
+        } else if (errorMsg.toLowerCase().includes('temperature')) {
+            const field = document.getElementById('Temperature');
+            field.value = '';
+            field.focus();
+        } else if (errorMsg.toLowerCase().includes('humidity')) {
+            const field = document.getElementById('Humidity');
+            field.value = '';
+            field.focus();
+        } else if (errorMsg.toLowerCase().includes('ph')) {
+            const field = document.getElementById('ph');
+            field.value = '';
+            field.focus();
+        } else if (errorMsg.toLowerCase().includes('rainfall')) {
+            const field = document.getElementById('Rainfall');
+            field.value = '';
+            field.focus();
+        }
+    }
+    </script>
+
+</body>
+
+</html>

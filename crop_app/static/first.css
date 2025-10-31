@@ -1,0 +1,43 @@
+body {
+    background-image: url(prediction_back.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  form {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+
+  input[type="text"] {
+    width: 390px;
+    padding: 7px;
+    margin-top: 2px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);;
+  }
+
+  input[type="submit"] {
+    width: 200px;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+
+  label {
+    font-size: 16px;
+    margin-top: 15px;
+    display: block;
+    font-weight: 500;
+  }

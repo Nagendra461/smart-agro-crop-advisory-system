@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Smart AgroCrop Advisory System</title>
+    <link rel="stylesheet" href="{% static 'myhome.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Smart AgroCrop Advisory System</h1>
+        <p style="color: black;">Smart AgroCrop Advisory System welcomes you on our website.  
+            Hope you are earning well from your farm, but we are here to provide you suggestions about your crop cultivation.  
+            We recommend which crop you should grow in your farm for better yields.  
+            It's very easy to predict based on your soil nutrients.  
+            You just need to know your soil nutrients by testing your soil in a lab.</p>
+        <br>
+        <h3 style="color: black;">Let's Start a New Journey With Smart AgroCrop Advisory System</h3>
+        <br>
+        <h2 style="color: black;">Click the following button for Crop Recommendation</h2>
+    </main>
+
+    <form action="{% url 'index' %}" method="get">
+        <input type="submit" id="Predict" value="Predict">
+    </form>
+</body>
+
+</html>

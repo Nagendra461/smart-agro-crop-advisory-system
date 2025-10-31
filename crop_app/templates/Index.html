@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AgroCrop Advisory System</title>
+    <link rel="stylesheet" href="{% static 'first.css' %}">
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="Nitrogen">Nitrogen</label>
+        <input type="text" id="Nitrogen" name="Nitrogen" value="{{ nitrogen|default:'' }}" placeholder="Nitrogen" required>
+
+        <label for="Phosphorus">Phosphorus</label>
+        <input type="text" id="Phosphorus" name="Phosphorus" value="{{ phosphorus|default:'' }}" placeholder="Phosphorus" required>
+
+        <label for="Potassium">Potassium</label>
+        <input type="text" id="Potassium" name="Potassium" value="{{ potassium|default:'' }}" placeholder="Potassium" required>
+
+        <label for="Temperature">Temperature</label>
+        <input type="text" id="Temperature" name="Temperature" value="{{ temperature|default:'' }}" placeholder="Temperature in Degree Celcius" required>
+
+        <label for="Humidity">Humidity</label>
+        <input type="text" id="Humidity" name="Humidity" value="{{ humidity|default:'' }}" placeholder="Relative Humidity in Percentage" required>
+
+        <label for="ph">pH</label>
+        <input type="text" id="ph" name="ph" value="{{ ph|default:'' }}" placeholder="ph should be in between 0-14" required>
+
+        <label for="Rainfall">Rainfall</label>
+        <input type="text" id="Rainfall" name="Rainfall" value="{{ rainfall|default:'' }}" placeholder="Rainfall in MM" required>
+
+        <input type="submit" id="submit" name="submit" value="Predict Your Crop">
+    </form>
+</body>
+
+</html>
